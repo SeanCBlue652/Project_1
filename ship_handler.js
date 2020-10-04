@@ -1,3 +1,13 @@
+/**
+*	@file	This handles alerting the player
+*/
+
+/**
+*	@param {int} ship_number takes in the number of the ship 
+*	@return {void} assigns alert to ship
+*	preconditions the game must have started
+*	postconditions	sets all ships to have alerts
+*/
 function set_ship_to_alert_status(ship_number){
 	/*
 	console.log("set_ship_to_alert_status_called");
@@ -36,7 +46,11 @@ function set_ship_to_alert_status(ship_number){
 	}
 	return;
 }
-
+/**
+*	@return {void} Sets the alert for all ships
+*	precondition	Game must have started
+*	postcondition	Handles the alert status of all ships
+*/
 function set_ship_alert_handler(){
 	//this is the second element in the array
 	let i = 1;
@@ -50,7 +64,15 @@ function set_ship_alert_handler(){
 		i++;
 	};
 }
-
+/**
+*
+*	precondition	Game must have started
+*	@param {Object} parent board document object to source from
+*	@param {int} ship_size find ship of certain size
+*	@param {int} upper_bound upper bound of the board
+*	@return {void} finishes adding ship to array
+*	postcondtion	Adds ships to array
+*/
 function add_ship(parent, ship_size, upper_bound){
 	//console.log("add_ship_called");
 	//sets an array of to_ship of size ship_size
@@ -72,7 +94,14 @@ function add_ship(parent, ship_size, upper_bound){
 	ship_array.push(to_ship);
 	ship_sunk_array.push(1);
 }
-
+/**
+*
+*	preconditions	Game must have started
+*	@param {Object} parent board document object to source from
+*	@param {int} ship_size	find ship of a certain size
+*	@return {void} added ship to array
+*	postconditions	Adds ships to array
+*/
 function add_ship_playerSide(parent, ship_size){
 	//console.log("add_ship_playerSide_called");
 	//sets an array of to_ship of size ship_size
@@ -89,7 +118,13 @@ function add_ship_playerSide(parent, ship_size){
 	ship_array_playerSide.push(to_ship);
 	ship_sunk_array_playerSide.push(1);
 }
-
+/**
+*
+*	precondition Game must have started
+*	@param {int} ship_number add alert to certain ship
+*	@return {void} sends alert when ship has been sunk
+*	postconditions attaches alert to all ship elements
+*/
 function set_ship_to_alert_status_playerSide(ship_number){
 	//console.log("set_ship_to_alert_status_called");
 	//console.log("ship_number " + ship_number);
@@ -124,7 +159,12 @@ function set_ship_to_alert_status_playerSide(ship_number){
 	}
 	return;
 }
-
+/**
+*
+*	@return {void} handles the player side alert
+*	precondition	Game must have started
+*	postcondition	Handles all playerSide alerts
+*/
 function set_ship_alert_handler_playerSide(){
 	//this is the second element in the array
 	let i = 1;

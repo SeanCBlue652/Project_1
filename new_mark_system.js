@@ -1,3 +1,14 @@
+/**
+*	@file	This file is a update to the original mark system used
+*/
+
+/**
+*	
+*	@param {Object} element this a document object that reperesents each cell of board
+*	@return {Function} new_mark_system that handles AI part of the game
+*	precondition	Must have board elements pre-defined
+*	postcondition	Returns a function that is called by addEventListener to each element
+*/
 function new_mark_system_0(element) {
 	return () => {
 		if (started && placeable == 1 && ai_selector == 1) {
@@ -38,7 +49,13 @@ function new_mark_system_0(element) {
 		}
 	}
 }
-
+/**
+*	
+*	@param	{Object} element takes in element and assigns eitehr old or new mark
+*	@return {Function} marksys returns relevant system to use based on game
+*	precondition	must have board element pre-defined
+*	postcondition	Returns a function when aI_selector is either at 1 or 0
+*/
 function marker(element) {
 	if (ai_selector == 1) {
 		return new_mark_system(element);

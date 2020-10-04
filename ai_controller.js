@@ -1,4 +1,13 @@
 /**
+*	@file	contains all UI game logic and starting logic for AI
+*/
+
+/**
+*
+*	@return {Void}	Logic for ai_switcher_toggled button
+*	precondition	Called when program starts
+*	postcondition	Handles the AI_Selector switch to toggle AI
+*
 *	AI_Function_switch
 *
 *	This toggles the ai_functionality switch
@@ -26,6 +35,11 @@ function ai_button_switch() {
 	}
 }
 /**
+*
+*	@return {Void}	Logic for toggling ai_switch_toggled button
+*	precondition	Called when program starts
+*	postcondition	This toggles the ai level switch and sets the ai_level
+*
 *	AI_level_switch
 *
 *	This switch controls the level of ai
@@ -57,6 +71,11 @@ function ai_level_switch() {
 	alert("The AI difficulty has been set to: " + ai_level);
 }
 /**
+*
+*	@return {Void}	Handles all ai functions
+*	precondition	Called when game has started
+*	postcondition	This handles the AI functionality
+*
 *	AI_functionality
 *
 *	This function implements .addEventListener to the ai_level_swtich, ai_start_switch
@@ -71,7 +90,11 @@ function ai_functionality() {
 	document.querySelector("#start").addEventListener("click", ai_starter);
 }
 /**
-*	@param parent Object
+*
+*	@param {Object} parent takes ina document object that represents board
+*	@return {Void}	handles marking of the board elements
+*	precondition	Must be called when grid is finished
+*	postcondition	Handles marking of the board elemenets
 *
 *	This function allows marking with new_mark_system or old mark system
 *	Implements set_ship_alert_hander for ai ships
@@ -98,6 +121,11 @@ function mark_selector(parent) {
 }
 
 /**
+*
+*	@return {Void}	handles starting up the ai
+*	precondition	Must be called by ai_functionality
+*	postcondition	This handles starting the AI
+*
 *	Ai_starter
 *
 *	The AI starter sets the markers onto the board depending on the
@@ -145,6 +173,11 @@ function ai_starter() {
 	}
 }
 /**
+*
+*	@return {Void}	adds game logic to board element
+*	precondition	Must be called by ai_starter
+*	postcondition	This handles adding logic to elements
+*
 *	ai_add_to_grid
 *
 *	This function adds .addEventListener(opponent_turn) and

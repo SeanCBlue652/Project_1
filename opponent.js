@@ -1,8 +1,13 @@
 /**
-*	@param	parent Object
-*	@param	size	Integer
+*	@file	this file handles the AI logic and parts of game logic 
+*/
+
+/**
+*	@param	{Object} parent takes in parent object
+*	@param	{int} size tkaes in size of ship
+*	@return {void} adds the ship to the ai_board randomly
 *	
-8	This code controls placing down a ship on a board, the parent Object, and a size
+*	This code controls placing down a ship on a board, the parent Object, and a size
 */
 function opponent_place_ships(parent, size) {
 	console.log("opponent_place_ship_called");
@@ -64,11 +69,12 @@ function opponent_place_ships(parent, size) {
 	} while (ch == 1);
 }
 /**
-*	@param  t_parent Object
-*	@param  t_place_ship_position Integer
-*	@param  t_size	Integer
-*	@param  t_orientation Integer
-*	@return boolean Boolean
+*	@param  {Object} t_parent takes in the board
+*	@param  {int} t_place_ship_position takes in the front of the ship
+*	@param  {int} t_size takes in the size of the ship
+*	@param  {int} t_orientation takes in the orientation of the ship
+*	@return {bool} returns true or false depending on the collision
+*
 *
 *	This is the collisionHandler, it the array for valid and invalid positions
 8	If the position is invalid, it will return false, else return true
@@ -133,10 +139,11 @@ function collisionHandler(t_parent, t_place_ship_position, t_size, t_orientation
 }
 
 /**
-*	@param	t_parent Object
-*	@param t_place_ship_position Integer
-*	@param t_size Integer
-*	@param t_orientation Integer
+*	@param  {Object} t_parent takes in the board
+*	@param  {int} t_place_ship_position takes in the front of the ship
+*	@param  {int} t_size takes in the size of the ship
+*	@param  {int} t_orientation takes in the orientation of the ship
+*	@return {void} places down the ship onto parent document
 *
 *	This function places down the ship, must call CollisionHandler beforehand
 *	It will place down markers for front, middle, and end
@@ -218,10 +225,11 @@ function place_ship(t_parent, t_place_ship_position, t_size, t_orientation) {
 /**
 *	Note that this code is not being used at the moment, see functional code at ai_controller.js
 *
-*	@param	parent Object
-*	@param  mark Object
-*	@param  Squares Object
-*	@param  level Integer
+*	@param	{Object} parent Code not used
+*	@param	{Object} mark Code not used
+*	@param  {Object} Squares Code not used
+*	@param  {int} level Code not used
+*	@return {void} Code not used
 *
 *	This code sets up the ai_ships with given parent, marker (optional), Squares (optional), and level
 *	It calls the following functions:
@@ -248,6 +256,8 @@ function opponent_setup(parent, mark, Squares, level) {
 
 /**
 *
+*	@return {void}	updates state of the game
+*
 *	This code alerts the player when the game is finished.
 *	It calls two functions, game_state_opponent and game_state_player
 *	It will check opponent first, then player
@@ -264,7 +274,7 @@ function game_state_multiplex() {
 }
 /**
 *
-*	@return boolean
+*	@return {boolean} updates the state of player side board document
 *
 *	This function controls the state of the player board,
 *	checking to see if the player has lost
@@ -299,7 +309,7 @@ function game_state_player() {
 }
 /**
 *
-*	@return boolean
+*	@return {boolean} updates the state of ai side board document
 *
 *	This function controls the state of the opponent board,
 *	checking to see if the ai has lost
@@ -333,6 +343,8 @@ function game_state_opponent() {
 	return false;
 }
 /**
+*	@return {void} implements special shot requirements and level requirements
+*
 *	This code checks the ai_level flag and uses appropiate ai_level
 *	The following ai_level function corresponding to each level is:
 *	ai_level: 1 => level_1;	easy
@@ -362,7 +374,13 @@ function opponent_turn() {
 	set_ship_alert_handler_playerSide();
 }
 
-
+/**
+*	@param	{int} fire takes in zero integer
+*	@return {Object} element returns a randomly selected valid element
+*
+*	preconditions	Must have board predefined and have valid array
+*	postconditions	Returns a board element randomly selected from valid array
+*/
 let pick_random_space = (fire) => {
 	let upper_bound = possible_ai_attack_positions.length;
 
@@ -379,6 +397,11 @@ let pick_random_space = (fire) => {
 }
 
 /**
+*
+*	@return {void} updates the state of the game with easy ai
+*	preconditions	Must been called by opponent_turn function
+*	postconditions	Calculates where for the ai to hit using random func
+*
 *	Level 1 ai	(easy)
 *	
 *	This ai loops through randomly on content board until free
@@ -426,6 +449,10 @@ function level_1() {
 	} while (checker == 1);
 }
 /**
+*	@return {void} updates the state of the game using medium ai
+*	preconditions	Must be called by opponent_turn
+*	postconditions	Calculates where to hit based on random func and orthogoal ships
+*
 *	Level 2 ai	(medium)
 *
 *	This ai loops through randomly on content until free and unhit spot
@@ -529,6 +556,10 @@ function level_2() {
 }
 
 /**
+*	@return {void} updates the state of the game using hard ai
+*	preconditions	Must have been called by opponent_turn
+*	postconditions	Hits all places of ships using loop
+*
 *	Level 3 ai	(hard)
 *	
 *	This was the easiest to implement of the three levels of ai
@@ -566,6 +597,10 @@ function level_3() {
 }
 
 /**
+*	@reutrn {void} updates the state of the game with triple random shots
+*	precondition	Must be called by either level_1 or level_2
+*	postcondition	Calculates and hits three times randomly
+*
 *	Level 1 and Level 2 Triple Shot
 *	This has a randomizer that ranges from 1 to 10
 *	and activates only on random mode, no orthogonal
@@ -607,12 +642,15 @@ function triple_1_2(){
 }
 
 /**
+*	@return {void} updates the state of the game with triple level 3 shots
+*	preconditions	Must be called by level_3
+*	postconditions	Same logic as level_3, made for firing three times
+*
 *	Level 3 triple shot functionality
 *	This function compared to the level 1 and level 2
 *	similar function features a vastly lower randomizer
 *	and perfect shots
 */
-
 function triple_3(){
 	if(ai_special_move_flag != 1){
 		return;

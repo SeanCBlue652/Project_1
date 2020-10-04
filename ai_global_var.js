@@ -1,3 +1,7 @@
+/**
+*	@file	The global variables for AI files are here
+*/
+
 /*
 *	GLOBAL AI_CTRL
 *	This controls the global ai_control values and flags
