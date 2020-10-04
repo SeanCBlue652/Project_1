@@ -343,14 +343,19 @@ function game_state_opponent() {
 *	of ships on the playerSide board
 */
 function opponent_turn() {
-	if (ai_level == 1) {
-		level_1();
+	if (!(specialShotStatus == "firing")) {
+		if (ai_level == 1) {
+			level_1();
+		}
+		else if (ai_level == 2) {
+			level_2();
+		}
+		else if (ai_level == 3) {
+			level_3();
+		}
 	}
-	else if (ai_level == 2) {
-		level_2();
-	}
-	else if (ai_level == 3) {
-		level_3();
+	else {
+		console.log("Delaying AI turn because the player is using triple shot.");
 	}
 	//after making move call set_ship_alert_handler_playerSide to check
 	//on playerSide ships
@@ -432,13 +437,13 @@ function level_2() {
 		return;
 	}
 	//use level_1 logic
-	if(orth_flag == 0){
+	if (orth_flag == 0) {
 		let fire = 0;
-		
+
 		let selected_square = pick_random_space(fire);
-		
+
 		console.log(selected_square);
-		
+
 		if (selected_square.className == "square") {
 			selected_square.firstChild.className = "missme";
 			possible_ai_attack_positions.splice(dir, 1);
@@ -455,26 +460,26 @@ function level_2() {
 
 			//when size != 1
 			//set flags
-			if(selected_square.dataset.size != "1"){
+			if (selected_square.dataset.size != "1") {
 				orth_flag = 1;
-			}	
-			else{
+			}
+			else {
 				orth_flag = 0;
 				return;
 			}
-			
+
 			//setup fire_array
 			let parent = document.querySelector("#ocean");
-			
+
 			//do this when size != 1
 			//insert ship to attack array
-			for(var i = 0; i < upper_bound; i++){
-				if(parent.children[i].dataset.size == selected_square.dataset.size){
+			for (var i = 0; i < upper_bound; i++) {
+				if (parent.children[i].dataset.size == selected_square.dataset.size) {
 					fire_array.push(parent.children[i]);
 				}
 			}
 		}
-	}	
+	}
 	//this is for level 2 logic
 	else {
 		let array_chk = 1;
@@ -483,13 +488,13 @@ function level_2() {
 			//if the part of the array has not been hit, hit it
 			if (fire_array[i].firstChild.className != "hitit") {
 				//splice from possible_ai_attack_positions
-				for(var k = 0; k < possible_ai_attack_positions.length; k++){
-					if(parseInt(fire_array[i].dataset.id) == possible_ai_attack_positions[k]){
+				for (var k = 0; k < possible_ai_attack_positions.length; k++) {
+					if (parseInt(fire_array[i].dataset.id) == possible_ai_attack_positions[k]) {
 						possible_ai_attack_positions.splice(k, 1);
 						break;
 					}
 				}
-				
+
 				console.log(possible_ai_attack_positions);
 
 				//set the firstChild.className to hitit
@@ -499,8 +504,8 @@ function level_2() {
 			}
 		}
 		//check for places
-		for(var i = 1; i < fire_array.length; i++){
-			if(fire_array[i].firstChild.className == "hitit"){
+		for (var i = 1; i < fire_array.length; i++) {
+			if (fire_array[i].firstChild.className == "hitit") {
 				array_chk++;
 			}
 		}

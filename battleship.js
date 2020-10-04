@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     base = document.getElementById('base');
     setup(content, markSquare, oSquares);
     setup(ocean, markShip, pSquares);
-    
+
     for (let index = 0; index < ocean.children.length; index++) {
         possible_ai_attack_positions.push(index);
     }
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let resetButton = document.querySelector('#reset');
     let startButton = document.getElementById('start');
     let rotateButton = document.getElementById('rotate');
+    let tripleShotButton = document.getElementById('shotbutton');
     let done = document.getElementById('choose');
 
     ai_functionality();
@@ -28,6 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
             started = false;
             sinkCounter = 0;
             num2 = 0;
+
+            specialShotStatus = "ready";
+            remainingShots = 3;
+            tripleShotButton.style.background = "hsl(115, 63%, 51%)";
 
             ai_check = 0;
             ai_level = 1;
@@ -80,6 +85,30 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Game has started!');
         }
     });
+
+    tripleShotButton.addEventListener('click', () => {
+        console.log('triple shot clicked');
+        if (!(started)) {
+            alert('Triple shot cannot be used until the game begins.');
+        } else {
+            if (specialShotStatus == "ready") {
+                specialShotStatus = "firing";
+                tripleShotButton.style.background = "red";
+                alert("Triple shot activated! You can take three shots this turn.");
+            }
+            else if (specialShotStatus == "firing") {
+                if (remainingShots > 1) {
+                    alert("Triple shot is already activated! You have " + remainingShots + " shots remaining on this turn.");
+                }
+                else {
+                    alert("Triple shot is already activated! You have 1 shot remaining on this turn.");
+                }
+            }
+            else {
+                alert("Triple shot can only be used once per game.");
+            }
+        }
+    })
 
     let input1 = document.querySelector('#numShips');
     const shipselectclick = document.querySelector('#ok')
