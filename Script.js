@@ -65,7 +65,7 @@ function markShip(square) {
                 }
                 if(gameCheck()){
                     alert('Game over! All your ships have sunk!');
-                    alert('You can click reset to try again.');
+                    alert('You can click Reset to try again.');
                 }
             } else if(square.firstChild.className == 'hitit') {
                 alert('Ship has already been hit at this location.');
@@ -153,16 +153,16 @@ function setShipNumber(input1, elem) {
         let num1 = parseInt(input1.value);
         num2 = num1;
         if (!isNaN(num1) && (num1 > 5 || num1 < 1)) {
-            alert('There are only five ships! Try again.');
+            alert('You must choose between 1-5 ships! Press "ok" to try again.');
         }
         else if (!isNaN(num1) && selected == false) {
             shipchoosing(num1);
             breakdown(elem);
             selected = true;
-            alert('You have chosen ' + num1 + ' ships.');
+            alert('You have chosen ' + num1 + ' ship(s).');
         } else if (selected == true) {
             alert('You already selected a number!');
-            alert('Note: reset only works if ships have been placed');
+            alert('Note: Reset only works if ships have been placed');
         } else {
             alert('Please enter a valid value!');
         }

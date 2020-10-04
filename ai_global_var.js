@@ -4,6 +4,7 @@
 */
 let ai_selector = 0;	//let ai_selector == 0 when off, ai_selector == 1 when on
 let ai_level = 1;	//let ai_level == 1 at base level
+document.querySelector("#ai_level").innerText = ai_level;
 let ai_check = 0;	//let ai_check == 1 when started or ai_check == 0 when reset
 let ai_util = 1;	//let ai_util == 0 when started or ai_util == 1 when reset;
 

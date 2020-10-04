@@ -1,7 +1,7 @@
 /**
 *	@param	parent Object
 *	@param	size	Integer
-*	
+*
 8	This code controls placing down a ship on a board, the parent Object, and a size
 */
 function opponent_place_ships(parent, size) {
@@ -141,7 +141,7 @@ function collisionHandler(t_parent, t_place_ship_position, t_size, t_orientation
 *	This function places down the ship, must call CollisionHandler beforehand
 *	It will place down markers for front, middle, and end
 *	The following CSS scripts used are:
-*	
+*
 *	front:	see .invisi_ship_marker_front;
 *	middle: see .invisi_ship_marker;
 *	rear:	see .invisi_ship_marker_end;
@@ -225,10 +225,10 @@ function place_ship(t_parent, t_place_ship_position, t_size, t_orientation) {
 *
 *	This code sets up the ai_ships with given parent, marker (optional), Squares (optional), and level
 *	It calls the following functions:
-*	
+*
 *	function:	level_3
 *	function:	set_ship_alert_handler
-*	
+*
 *	It has high-order functions:
 *	.addEventListnener
 *	.append
@@ -289,7 +289,7 @@ function game_state_player() {
 		ai_util = 1;
 		placeable = 0;
 		alert("Game Over! The opponent has sunk your ship");
-		alert("Please press restart to restart");
+		alert("Please press Reset to restart.");
 
 		//alert("Game Over! You have sunk all the opponent's ships");
 		//alert("Please press restart to restart");
@@ -324,7 +324,7 @@ function game_state_opponent() {
 		ai_util = 1;
 		placeable = 0;
 		alert("Game Over! You have sunk all the opponent's ships");
-		alert("Please press restart to restart");
+		alert("Please press Reset to restart.");
 
 		//alert("Game Over! The opponent has sunk your ship");
 		//alert("Please press restart to restart");
@@ -380,7 +380,7 @@ let pick_random_space = (fire) => {
 
 /**
 *	Level 1 ai	(easy)
-*	
+*
 *	This ai loops through randomly on content board until free
 *	spot
 */
@@ -526,7 +526,7 @@ function level_2() {
 
 /**
 *	Level 3 ai	(hard)
-*	
+*
 *	This was the easiest to implement of the three levels of ai
 *	It features a for loop running until it reaches a unhit, ship div Object
 *	If it reaches, it will hit and break. Do this until game has ended
@@ -557,4 +557,3 @@ function level_3() {
 		}
 	}
 }
-
