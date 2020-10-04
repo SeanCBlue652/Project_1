@@ -14,6 +14,7 @@ function new_mark_system_0(element) {
 				}
 				else {
 					element.firstChild.className = "missme";
+					remainingShots -= 1;
 					if (remainingShots > 1) {
 						alert("Miss! You have " + remainingShots + " shots remaining on this turn.");
 					}
