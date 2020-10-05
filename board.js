@@ -52,6 +52,7 @@ function setup(parent, mark, Squares) {
         elem.append(circ);
     }
 
+    
   //  if(parent.id != "ocean"){
     //	for(var d = 1; d <= document.querySelector("#numShips"); i++){
     /*
@@ -67,6 +68,7 @@ function setup(parent, mark, Squares) {
    // }
 
 
+      
 }
 
 /**

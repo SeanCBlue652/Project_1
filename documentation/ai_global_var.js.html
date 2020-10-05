@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: GlobalVars.js</title>
+    <title>JSDoc: Source: ai_global_var.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: GlobalVars.js</h1>
+    <h1 class="page-title">Source: ai_global_var.js</h1>
 
     
 
@@ -27,37 +27,55 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file variables that are used globally are all defined in here.
- */
+*	@file	The global variables for AI files are here
+*/
 
-let pSquares = [];
-let oSquares = [];
-let started = false;
-let hori = true;
-let base;
-let sinkCounter = 0;
+/*
+*	GLOBAL AI_CTRL
+*	This controls the global ai_control values and flags
+*/
+let ai_selector = 0;	//let ai_selector == 0 when off, ai_selector == 1 when on
+let ai_level = 1;	//let ai_level == 1 at base level
+let ai_check = 0;	//let ai_check == 1 when started or ai_check == 0 when reset
+let ai_util = 1;	//let ai_util == 0 when started or ai_util == 1 when reset;
 
-let shipById;
-let draggedShip;
-let draggedShipLength;
+/*
+*	GLOBAL AI_DATA
+*	This controls the gloval ai_data values
+*/
+let ai_special_move_flag = 1;
 
-let ships = document.querySelectorAll('.ship');
-let selected = false;
-let num2 = 0;
+/**
+*	GLOBAL AI_LEVEL_2_CTRL
+*	This controls the ai_level_2 control flags
+*/
+let orth_flag = 0;	//This is the flag for when ai_level_2 is in orthogonal mode
+let ship_length = "";	//This is the ship_length of the code
 
-let possible_ai_attack_positions = [];
+//this holds the elements to hit
+//init as a 1 element array
+//ignore the first element when writing code
+let fire_array = [0];	//This is the fire
+let dir = 0;
 
-let specialShotStatus = "ready";
-let remainingShots = 3;
+/**
+*	GLOBAL AI_SHIP_DECT
+*	This controls the global_ai_ship detection
+*/
+//let the following arrays be the array of ships
+//init as a 1 element array
+//ignore the first element when writing code
+let ship_array = [0];	//this is the ship_array, it has a 0th element to facilitate ship_number
+let ship_sunk_array = [0];	//this is the ship_sunk_array, it has a 0th element
+//same as above but for playerSide
+let ship_array_playerSide = [0];	//this is the playerSide ship_array
+let ship_sunk_array_playerSide = [0];	//this is the playerSide ship_sunk_array
 
-ships.forEach(ship => ship.addEventListener('mousedown', (event) => {
-    shipById = event.target.id;
-    console.log(shipById);
-}))
-
-ships.forEach(ship => ship.addEventListener('dragstart', startDrag));
-
-ships.forEach(ship => ship.setAttribute('draggable', 'true'));
+/*
+*	GLOBAL GAME_CTRL
+*	This controls the global game_control placeable flag
+*/
+let placeable = 1;	//let placeable be 1 when placeable and 0 when not
 </code></pre>
         </article>
     </section>

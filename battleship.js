@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ai_check = 0;
             ai_level = 1;
             ai_util = 1;
+            
+            ai_special_move_flag = 1;
 
             placeable = 1;
 

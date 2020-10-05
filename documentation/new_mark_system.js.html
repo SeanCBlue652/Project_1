@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: GlobalVars.js</title>
+    <title>JSDoc: Source: new_mark_system.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: GlobalVars.js</h1>
+    <h1 class="page-title">Source: new_mark_system.js</h1>
 
     
 
@@ -27,37 +27,69 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file variables that are used globally are all defined in here.
- */
+*	@file	This file is a update to the original mark system used
+*/
 
-let pSquares = [];
-let oSquares = [];
-let started = false;
-let hori = true;
-let base;
-let sinkCounter = 0;
-
-let shipById;
-let draggedShip;
-let draggedShipLength;
-
-let ships = document.querySelectorAll('.ship');
-let selected = false;
-let num2 = 0;
-
-let possible_ai_attack_positions = [];
-
-let specialShotStatus = "ready";
-let remainingShots = 3;
-
-ships.forEach(ship => ship.addEventListener('mousedown', (event) => {
-    shipById = event.target.id;
-    console.log(shipById);
-}))
-
-ships.forEach(ship => ship.addEventListener('dragstart', startDrag));
-
-ships.forEach(ship => ship.setAttribute('draggable', 'true'));
+/**
+*	
+*	precondition	Must have board elements pre-defined
+*	postcondition	Returns a function that is called by addEventListener to each element
+*	@param {Object} element this a document object that reperesents each cell of board
+*	@return {Function} new_mark_system that handles AI part of the game
+*/
+function new_mark_system_0(element) {
+	return () => {
+		if (started &amp;&amp; placeable == 1 &amp;&amp; ai_selector == 1) {
+			if (specialShotStatus == "firing") {
+				remainingShots -= 1;
+				if (element.className != "square") {
+					element.firstChild.className = "hitit";
+					//remainingShots -= 1;
+					if (remainingShots > 1) {
+						alert("Hit! You have " + remainingShots + " shots remaining on this turn.");
+					}
+					else {
+						alert("Hit! You have 1 shot remaining on this turn.");
+					}
+				}
+				else {
+					element.firstChild.className = "missme";
+					if (remainingShots > 1) {
+						alert("Miss! You have " + remainingShots + " shots remaining on this turn.");
+					}
+					else {
+						alert("Miss! You have 1 shot remaining on this turn.");
+					}
+				}
+				if (remainingShots &lt; 1) {
+					console.log("Special shot is over");
+					specialShotStatus = "finished";
+				}
+			}
+			else {
+				if (element.className != "square") {
+					element.firstChild.className = "hitit";
+				}
+				else {
+					element.firstChild.className = "missme";
+				}
+			}
+		}
+	}
+}
+/**
+*
+*	precondition	must have board element pre-defined
+*	postcondition	Returns a function when aI_selector is either at 1 or 0	
+*	@param	{Object} element takes in element and assigns eitehr old or new mark
+*	@return {Function} marksys returns relevant system to use based on game
+*/
+function marker(element) {
+	if (ai_selector == 1) {
+		return new_mark_system(element);
+	}
+	return mark(element);
+}
 </code></pre>
         </article>
     </section>

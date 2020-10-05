@@ -1,10 +1,14 @@
+/**
+*	@file	The global variables for AI files are here
+*/
+
 /*
 *	GLOBAL AI_CTRL
 *	This controls the global ai_control values and flags
 */
 let ai_selector = 0;	//let ai_selector == 0 when off, ai_selector == 1 when on
 let ai_level = 1;	//let ai_level == 1 at base level
-document.querySelector("#ai_level").innerText = ai_level;
+document.querySelector("#ai_level").innerText = ""+ai_level;
 let ai_check = 0;	//let ai_check == 1 when started or ai_check == 0 when reset
 let ai_util = 1;	//let ai_util == 0 when started or ai_util == 1 when reset;
 
@@ -13,6 +17,7 @@ let ai_util = 1;	//let ai_util == 0 when started or ai_util == 1 when reset;
 *	This controls the gloval ai_data values
 */
 let ai_special_moves = 3;
+let ai_special_move_flag = 1;
 
 /**
 *	GLOBAL AI_LEVEL_2_CTRL
