@@ -20,7 +20,12 @@ function new_mark_system_0(element) {
 						alert("Hit! You have " + remainingShots + " shots remaining on this turn.");
 					}
 					else {
-						alert("Hit! You have 1 shot remaining on this turn.");
+						if (remainingShots == 1) {
+							alert("Hit! You have 1 shot remaining on this turn.");
+						}
+						else {
+							alert("You have no remianing shots on this turn.");
+						}
 					}
 				}
 				else {

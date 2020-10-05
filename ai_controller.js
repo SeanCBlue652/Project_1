@@ -13,6 +13,7 @@
 *	It sets ai_selector to 0 if 1 and vice versa
 *	All ai_functions depend on this switch
 *	Switch deactivates when game has started
+**/
 function ai_button_switch() {
 
 	//activate when the game has not started
@@ -87,7 +88,7 @@ function ai_functionality() {
 	console.log("ai_func_called");
 	//adds functionality dependent on addEventListener
 	document.querySelector("#ai_level_switch").addEventListener("click", ai_level_switch);
-	document.querySelector("#ai_switch").addEventListener("click", ai_button_switch);
+	document.getElementById('ai_switch').addEventListener("click", ai_button_switch);
 	document.querySelector("#start").addEventListener("click", ai_starter);
 }
 /**
