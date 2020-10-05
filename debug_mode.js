@@ -6,9 +6,9 @@ function debug_functionality() {
 /**
 *	Debug mode
 *
-*	This toggles the opponent ships' visibility
-*
-*
+*	@pre Game in progess and ships placed
+* @param None
+* @post This toggles the opponent ships' visibility
 *
 */
 function debug_button_switch() {

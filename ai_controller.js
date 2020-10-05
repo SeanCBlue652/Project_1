@@ -32,10 +32,11 @@ function ai_button_switch() {
 		}
 	}
 }
+
 /**
 *
-*	precondition	Called when program starts
-*	postcondition	This toggles the ai level switch and sets the ai_level
+*	@pre	Called when program starts
+*	@post	This toggles the ai level switch and sets the ai_level
 *
 *	AI_level_switch
 *
@@ -72,17 +73,18 @@ function ai_level_switch() {
 	}
 	alert("The AI difficulty has been set to: " + ai_level);
 }
+
 /**
 *
-*	precondition	Called when game has started
-*	postcondition	This handles the AI functionality
+*	@pre	Called when game has started
+*	@post	This handles the AI functionality
+* @returns {Void}	Handles all ai functions
 *
 *	AI_functionality
 *
 *	This function implements .addEventListener to the ai_level_swtich, ai_start_switch
 *	ands adds further ability to start swtich
 *	Calls ai_level_switch, ai_button_switch and ai_starter
-*	@return {Void}	Handles all ai functions
 */
 function ai_functionality() {
 	console.log("ai_func_called");
@@ -91,17 +93,16 @@ function ai_functionality() {
 	document.getElementById('ai_switch').addEventListener("click", ai_button_switch);
 	document.querySelector("#start").addEventListener("click", ai_starter);
 }
+
 /**
-*	@param parent Object
-*
-*	precondition	Must be called when grid is finished
-*	postcondition	Handles marking of the board elemenets
+*	@pre	Must be called when grid is finished
+*	@post	Handles marking of the board elemenets
+*	@param {Object} parent takes ina document object that represents board
+*	@return {Void}	handles marking of the board elements
 *
 *	This function allows marking with new_mark_system or old mark system
 *	Implements set_ship_alert_hander for ai ships
 *	See opponent_turn in opponent.js for set_ship_alert_handler_playerSide
-*	@param {Object} parent takes ina document object that represents board
-*	@return {Void}	handles marking of the board elements
 */
 function mark_selector(parent) {
 	for (var i = 0; i < 81; i++) {
@@ -125,8 +126,9 @@ function mark_selector(parent) {
 
 /**
 *
-*	precondition	Must be called by ai_functionality
-*	postcondition	This handles starting the AI
+*	@pre	Must be called by ai_functionality
+*	@post	This handles starting the AI
+*	@return {Void}	handles starting up the ai
 *
 *	Ai_starter
 *
@@ -135,7 +137,6 @@ function mark_selector(parent) {
 *	It adds the ai ships onto the board, sets the ai_util flag to zero
 *	to disable adding ships
 *	It adds playerSide ships to check array
-*	@return {Void}	handles starting up the ai
 */
 function ai_starter() {
 	//set the markers on the board
@@ -175,17 +176,18 @@ function ai_starter() {
 		}
 	}
 }
+
 /**
 *
-*	precondition	Must be called by ai_starter
-*	postcondition	This handles adding logic to elements
+*	@pre	Must be called by ai_starter
+*	@post	This handles adding logic to elements
+*	@return {Void}	adds game logic to board element
 *
 *	ai_add_to_grid
 *
 *	This function adds .addEventListener(opponent_turn) and
 *	.addEventListener(game_state_multiplex) to the content board
 *	where the player can access
-*	@return {Void}	adds game logic to board element
 */
 function ai_add_to_grid() {
 	console.log("ai_add_to_grid_called");
@@ -195,4 +197,3 @@ function ai_add_to_grid() {
 		parent.children[i].addEventListener("click", game_state_multiplex);
 	}
 }
-

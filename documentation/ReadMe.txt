@@ -1,7 +1,11 @@
-This project was created in collaboration by:
+This project was originally created in collaboration by:
 
 Suhaib Ansari, Jianpeng Li, Brian Cheung, Ellen Vandewater.
 
+
+The updated version 2 of this Battleship was created by:
+
+Sean Cunningham, Samuel Gilchrist, Jacob Johnston, Peter Tso. Tao Yang.
 
 
 =============================================
@@ -28,6 +32,10 @@ How the game works:
 2. To play the game, simply enter in the number of ships you would like to play with in the text box at the center of the screen and click ok.
 (The number of ships chosen must be between 1-5)
 
+    2.a) If you would like to play against AI, toggle with the AI button.
+
+    2.b) To change the difficulty of the AI, press the Change AI Difficulty (X) button. X represents whatever the difficulty level is currently.
+
 3. once you have clicked on OK. you should not see that text box anymore.
 
 4. the player can then click on the rotate HORIZONTAL/VERTICAL button to rotate the ships in the direction they would like to place them on.
@@ -40,6 +48,8 @@ How the game works:
 
 8. when you click once on the left board, it turns red, which indicates that it is a hit. If you click on the red dot, it turns gray, which indicates as a miss. Incase you messed up.
 
+    8.a) To select the special feature, push the Triple Shot button, which lets you fire three times in one turn
+    
 9. on the right side board, clicking on white dot on a ship leaves you with a hit (red). and clicking on the ocean area, leaves you with a grey(miss).
 
 10. When your ship has been sunk, the GM will notify you through a pop up box on the browser.
