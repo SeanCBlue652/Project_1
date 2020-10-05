@@ -8,7 +8,7 @@
  * @param  {Object} parent  takes in a document object namely either the opponent or player board
  * @param  {Function} mark    passes in the mark function, in practice the opponent board mark function or the player board mark function which work differently at runtime
  * @param  {Object} Squares In practice it passes in the empty array and pushes onto it every div element for the given board either the opponent or player is used
- * @return {void}         sets up each board and defines the behavior of each square on click
+ * @return {void}          sets up each board and defines the behavior of each square on click
  */
 
 function setup(parent, mark, Squares) {
