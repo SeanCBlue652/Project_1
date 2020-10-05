@@ -4,8 +4,8 @@
 
 /**
 *
-*	precondition	Called when program starts
-*	postcondition	Handles the AI_Selector switch to toggle AI
+*	@pre	Called when program starts
+*	@post	Handles the AI_Selector switch to toggle AI
 *
 *	AI_Function_switch
 *

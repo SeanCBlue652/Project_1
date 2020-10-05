@@ -36,6 +36,7 @@ let dir = 0;
 *	GLOBAL AI_SHIP_DECT
 *	This controls the global_ai_ship detection
 */
+
 //let the following arrays be the array of ships
 //init as a 1 element array
 //ignore the first element when writing code

@@ -1,6 +1,7 @@
 /**
 *@file contains all functions that control the game board
 */
+
 /**
  * setup - This function creates the necessary components for the board to work.
  *
@@ -52,7 +53,7 @@ function setup(parent, mark, Squares) {
         elem.append(circ);
     }
 
-    
+
   //  if(parent.id != "ocean"){
     //	for(var d = 1; d <= document.querySelector("#numShips"); i++){
     /*
@@ -68,7 +69,7 @@ function setup(parent, mark, Squares) {
    // }
 
 
-      
+
 }
 
 /**
