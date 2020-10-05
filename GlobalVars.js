@@ -22,6 +22,8 @@ let possible_ai_attack_positions = [];
 let specialShotStatus = "ready";
 let remainingShots = 3;
 
+let debug_status=0;
+
 ships.forEach(ship => ship.addEventListener('mousedown', (event) => {
     shipById = event.target.id;
     console.log(shipById);

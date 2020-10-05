@@ -19,21 +19,22 @@
     </div>
     <div class="buttons" id="choose">
         <button id="Noship" class="btns">
-            Number:
+            Number of Ships:
         </button>
         <input type="number" id="numShips">
         <button id="ok" class="btns">ok</button>
     </div>
-
+---------------BATTLESHIP---------------
     <div class="buttons" id="gamelogic">
 
         <button id="start" class="btns">Start</button>
-        <button id="rotate" class="btns">Rotate H/V</button>
+        <button id="rotate" class="btns">Rotate Ship Orientation</button>
         <button id="reset" class="btns">Reset</button>
     </div>
     <div class="buttons" id="ai_logic">
         <button id="ai_switch" class="btns_alt">Ai</button>
-        <button id="ai_level_switch" class="btns">Set Difficulty</button>
+        <button id="ai_level_switch" class="btns">Set Ai Difficulty (<span id="ai_level"> </span>)</button>
+        <button id="debug_mode" class="btns_alt">Debug Mode</button>
     </div>
 
     <div class="buttons" id="specialshot">
@@ -87,5 +88,6 @@
 <script src="ai_controller.js"></script>
 <script src="ai_global_var.js"></script>
 <script src="ship_handler.js"></script>
+<script src="debug_mode.js"></script>
 
 </html>

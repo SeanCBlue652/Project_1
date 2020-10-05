@@ -1,6 +1,6 @@
 
 /**
- * @file runs the game of battleship 
+ * @file runs the game of battleship
  */
 document.addEventListener('DOMContentLoaded', () => {
     let content = document.getElementById('content');
@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let done = document.getElementById('choose');
 
     ai_functionality();
+
+    debug_functionality();
 
     resetButton.addEventListener('click', () => {
         if (started) {

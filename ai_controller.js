@@ -37,6 +37,7 @@ function ai_level_switch() {
 	//toggle works if ai_selector is 1
 	if (ai_selector == 0) {
 		ai_level = 1;
+		document.querySelector("#ai_level").innerText = ai_level;
 		alert("The AI is off");
 		return;
 	}
@@ -47,12 +48,15 @@ function ai_level_switch() {
 	}
 	if (ai_level == 1) {
 		ai_level = 2;
+		document.querySelector("#ai_level").innerText = ai_level;
 	}
 	else if (ai_level == 2) {
 		ai_level = 3;
+		document.querySelector("#ai_level").innerText = ai_level;
 	}
 	else if (ai_level == 3) {
 		ai_level = 1;
+		document.querySelector("#ai_level").innerText = ai_level;
 	}
 	alert("The AI difficulty has been set to: " + ai_level);
 }
@@ -159,4 +163,3 @@ function ai_add_to_grid() {
 		parent.children[i].addEventListener("click", game_state_multiplex);
 	}
 }
-

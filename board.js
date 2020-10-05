@@ -51,7 +51,7 @@ function setup(parent, mark, Squares) {
         circ.className = 'circle';
         elem.append(circ);
     }
-    
+
   //  if(parent.id != "ocean"){
     //	for(var d = 1; d <= document.querySelector("#numShips"); i++){
     /*
@@ -66,7 +66,7 @@ function setup(parent, mark, Squares) {
     //	}
    // }
 
-      
+
 }
 
 /**
@@ -135,7 +135,7 @@ function resetAsk(chooseBar) {
     let noship = document.createElement('button');
     noship.id = 'Noship';
     noship.className = 'btns';
-    noship.innerText = 'Number:';
+    noship.innerText = 'Number of Ships:';
     chooseBar.append(noship);
     let numShips = document.createElement('input');
     numShips.id = 'numShips';
